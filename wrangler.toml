@@ -1,0 +1,22 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "chatbot-ai-do"
+main = "src/index.ts"
+compatibility_date = "2024-06-05"
+
+[placement]
+mode = "smart"
+
+[ai]
+binding = "AI"
+
+[[durable_objects.bindings]]
+name = "AI_CHAT_HANDLER"
+class_name = "AIChatHandler"
+
+[[migrations]]
+tag = "v2"
+renamed_classes = [{from = "MyDurableObject", to = "AIChatHandler"}]
+
+[[kv_namespaces]]
+binding = "CHATBOT_KV"
+id = "0403fe4ac07f4aa19bcfffe463ab740e"
